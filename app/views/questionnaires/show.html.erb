@@ -1,0 +1,18 @@
+<h1> <%= @questionnaire.name %> </h1>
+<%= form_with url: results_questionnaire_path(@questionnaire.id), method: :post do |form| %>
+    <ul>
+        <% @questionnaire.questions.each do |question| %>
+            <li> <%= question.text %>
+                <ul>
+                    <% question.answers.each do |answer| %>
+                        <li>
+                          <%= form.radio_button "question[#{question.id}]", answer.id %>
+                          <%= form.label "#{question.id}_#{answer.id}", answer.text %>
+                        </li>
+                    <% end %>
+                </ul>
+            </li>
+        <% end %>
+    </ul>
+    <%= form.submit "Submit answers" %>
+<% end %>
