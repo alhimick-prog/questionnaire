@@ -1,11 +1,11 @@
 <h1>Questionnaires</h1>
 <ul>
-    <% @questionnaires.each do |questionnaire| %>
-        <li>
-            <p>
-                <%= link_to questionnaire.name, questionnaire_path(questionnaire.id) %> - 
-                <%= questionnaire.description %>
-            </p>
-        </li>
-    <% end %>
+  <% @questionnaires.each do |questionnaire| %>
+    <li>
+      <p>
+        <%= link_to questionnaire.name, questionnaire_path(questionnaire.id) %> - 
+        <%= questionnaire.description %>
+      </p>
+    </li>
+  <% end %>
 </ul>
